@@ -1,0 +1,6 @@
+namespace: argo
+bases:
+- ../base
+resources:                                                                                                                     
+- ingress.yml
+- deploy.yml
