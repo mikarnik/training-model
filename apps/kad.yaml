@@ -14,7 +14,8 @@ spec:
     targetRevision: HEAD
   helm:
     parameters:
-    - replicas: 3
+    - name: replicas
+      value: "3"
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
