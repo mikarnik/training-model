@@ -12,10 +12,10 @@ spec:
     path: helm
     repoURL: https://gitlab.com/6shore.net/kad.git
     targetRevision: HEAD
-  helm:
-    parameters:
-    - name: replicas
-      value: "3"
+    helm:
+      parameters:
+      - name: replicas
+        value: "3"
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
