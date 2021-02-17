@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://gitlab.com/tomkukral/training-model.git
+    repoURL: https://github.com/mikarnik/training-model.git
     targetRevision: HEAD
     path: argo/cd
   destination:
