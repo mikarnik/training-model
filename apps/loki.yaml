@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argo
+  labels:
+    cluster: c1
+    app: loki
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mikarnik/training-model.git
+    targetRevision: HEAD
+    path: loki
+  destination:
+    namespace: loki
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
