@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argo
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: prometheus
+  source:
+    repoURL: https://github.com/mikarnik/training-model.git
+    targetRevision: HEAD
+    path: prometheus
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true

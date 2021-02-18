@@ -1,0 +1,12 @@
+image: tomkukral/kad
+cluster: unknown
+replicas: 2
+
+ingress:
+  enabled: false
+  clusterhost: kad.6shore.net
+
+rbac:
+  enabled: false
+
+fallbacks: []

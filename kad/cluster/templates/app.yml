@@ -1,0 +1,36 @@
+{{- $values := .Values -}}
+{{- range $h, $cluster := .Values.clusters }} 
+---
+#
+# Cluster {{ $cluster }}
+#
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kad-{{ $cluster }}
+  labels:
+    cluster: {{ $cluster }}
+spec:
+  destination:
+    namespace: kad
+    name: {{ $cluster }}
+  source:
+    path: helm
+    repoURL: https://gitlab.com/6shore.net/kad.git
+    targetRevision: HEAD
+    helm:
+      values: |
+        cluster: "{{ $cluster }}"
+        replicas: "{{ $values.replicas }}"
+        fallbacks:
+        #{{- range $hi, $fb := $values.clusters }} 
+        #{{ if eq $fb $cluster }}#{{ end }}- kad.{{ $fb }}.k8s.6shore.net
+        #{{- end }}
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+{{ end }}
