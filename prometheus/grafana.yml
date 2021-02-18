@@ -30,14 +30,14 @@ spec:
             path: provisioning/dashboards/datascript.yml
       initContainers:
       - name: copy-dashboards
-       image: tomkukral/kubernetes-mixin
-       command:
-       - bash 
-       - -c 
-       - "cp -v /data/grafana/* /mnt/dashboards/"
-       volumeMounts:
-       - name: dashboards
-         mountPath: /mnt/dashboards
+        image: tomkukral/kubernetes-mixin
+        command:
+        - bash 
+        - -c 
+        - "cp -v /data/grafana/* /mnt/dashboards/"
+        volumeMounts:
+        - name: dashboards
+          mountPath: /mnt/dashboards
       containers:
       - name: grafana
         image: grafana/grafana
