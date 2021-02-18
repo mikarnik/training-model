@@ -11,7 +11,7 @@ resources:
 - prometheus.yml
 - alertmanager.yml
 - grafana.yml
-#- karma.yml
+- karma.yml
 - node-exporter-ds.yml
 #- telegram-bot-sealed.yml
 #- telegram-bot.yml
