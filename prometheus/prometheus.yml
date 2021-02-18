@@ -36,14 +36,14 @@ spec:
           claimName: prometheus-data
       initContainers:
       - name: copy-rules
-       image: tomkukral/kubernetes-mixin
-       command:
-       - bash 
-       - -c 
-       - "cp -v /data/prometheus/* /etc/prometheus/rules-init/"
-       volumeMounts:
-       - name: rules-init
-         mountPath: /etc/prometheus/rules-init/
+        image: tomkukral/kubernetes-mixin
+        command:
+        - bash 
+        - -c 
+        - "cp -v /data/prometheus/* /etc/prometheus/rules-init/"
+        volumeMounts:
+        - name: rules-init
+          mountPath: /etc/prometheus/rules-init/
       containers:
       - name: prometheus
         image: prom/prometheus
