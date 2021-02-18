@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argoworkflows
+  namespace: argo
+  labels:
+    cluster: c1
+    app: argoworkflows
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mikarnik/training-model.git
+    targetRevision: HEAD
+    path: argo/workflows
+  destination:
+    namespace: argo
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
