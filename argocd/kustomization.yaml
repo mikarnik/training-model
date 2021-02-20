@@ -1,0 +1,19 @@
+namespace: argocd
+resources:
+- namespace.yaml
+- deploy.yaml
+- ingress.yaml
+patchesStrategicMerge:
+- patch_server.yml
+configMapGenerator:
+- name: argocd-cm
+  behavior: merge
+  literals:
+  - accounts.karmadm='apiKey, login'
+  files:
+  - repositories
+secretGenerator:
+- name: argocd-secret
+  behavior: merge
+  literals:
+  - admin.password=$2y$10$uWnaX/m1d2DsGApmyl0sNOShTqWSuRn/Hwel8YPukdh4KdLfIswwm
