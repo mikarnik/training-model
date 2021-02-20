@@ -43,7 +43,7 @@ spec:
       volumes:
       - configMap:
           defaultMode: 0666
-          name: nginx-multitool-conf
+          name: nginx-multitool-conf-d
         name: nginx-multitool-conf-d
       - configMap:
           defaultMode: 0666
