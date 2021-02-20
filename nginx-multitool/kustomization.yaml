@@ -1,0 +1,14 @@
+namespace: nginx-multitool
+resources:
+- namespace.yaml
+- deploy.yaml
+- ingress.yaml
+configMapGenerator:
+- name: nginx-multitool-conf-d
+  behavior: merge
+  files:
+  - default.conf
+- name: nginx-multitool-index-html
+  behavior: merge
+  files:
+  - index.html

@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: nginx-multitool
   namespace: argo
 spec:
   project: default
   source:
     repoURL: https://github.com/mikarnik/training-model.git
     targetRevision: HEAD
-    path: argocd
+    path: nginx-multitool
   destination:
-    namespace: argocd
+    namespace: nginx-multitool
     server: https://kubernetes.default.svc
   syncPolicy:
     syncOptions:
