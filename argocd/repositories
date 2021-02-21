@@ -1,7 +1,0 @@
-- type: git
-  url: https://github.com/mikarnik/training-model.git
-- type: git
-  url: git@github.com:mikarnik/k01-cluster-01.git
-  sshPrivateKeySecret:
-    name: github-k01-deploy-key
-    key: ssh-privatekey
